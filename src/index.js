@@ -6,7 +6,7 @@ import ChartComponent from './chart2';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <ChartComponent />
+    <RevenueCategorie />
   </>
 );
 
