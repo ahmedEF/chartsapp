@@ -7,7 +7,7 @@ const ChartComponent = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:3000/chart');
+            const response = await fetch('http://localhost:3000/RevenueCategorie');
             const jsonData = await response.json();
             console.log(jsonData);
             setData(jsonData);
@@ -16,37 +16,37 @@ const ChartComponent = () => {
     }, []);
 
     useEffect(() => {
-        let cityLabels = [];    
-        let cityData = [];
-        let genderLabels = [];
-        let genderData = [];
+        let grossincomeLabels = [];    
+        let grossincomeData = [];
+        let productlineLabels = [];
+        let productlineData = [];
 
         data.forEach(item => {
-            if(item.City){
-              cityLabels.push(item.City);
-              cityData.push(item.CityCount);
+            if(item.Grossincome){
+              grossincomeLabels.push(item.Grossincome);
+              grossincomeData.push(item.Grossincomecount);
             }
             if(item.Gender){
-              genderLabels.push(item.Gender);
-              genderData.push(item.GenderCount);
+              productlineLabels.push(item.Productline);
+              productlineData.push(item.Productlinecount);
             }
         });
         console.log(chartData);
         setChartData({
-            city: {
-                labels: cityLabels,
+            Grossincome: {
+                labels: grossincomeLabels,
                 datasets: [{
-                    data: cityData,
-                    backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-                    hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774']
+                    data: grossincomeLabels,
+                    backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1'],
+                    hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5']
                 }]
             },
-            gender: {
-                labels: genderLabels,
+            Productline: {
+                labels: productlineLabels,
                 datasets: [{
-                    data: genderData,
-                    backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-                    hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774']
+                    data: productlineData,
+                    backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1'],
+                    hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5']
                 }]
             }
         });
@@ -55,8 +55,8 @@ const ChartComponent = () => {
 
     return (
         <div>
-            <Bar data={chartData.city} />
-            <Bar data={chartData.gender} />
+            <Bar data={chartData.grossincome} />
+            <Bar data={chartData.productline} />
         </div>
     )
 }
