@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Bar, Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
-const ChartComponent = () => {
+const RevenueCategorie = () => {
     const [data, setData] = useState({});
-    const [chartData, setChartData] = useState({});
 
     useEffect(() => {
         const fetchData = async () => {
+            // fetch data from the endpoint
             const response = await fetch('http://localhost:3000/RevenueCategorie');
             const jsonData = await response.json();
             setData(jsonData);
@@ -14,32 +14,26 @@ const ChartComponent = () => {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        let productLineLabels = [];    
-        let grossIncomeData = [];
+    // extract labels and data from json
+    const labels = data.map(item => item.Productline);
+    const revenueData = data.map(item => item.Grossincome);
 
-        data.forEach(item => {
-            if(item.Productline){
-              productLineLabels.push(item.Productline);
-              grossIncomeData.push(item.Grossincome);
-            }
-        });
-        
-        setChartData({
-            labels: productLineLabels,
-            datasets: [{
-                data: grossIncomeData,
-                backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-                hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774']
-            }]
-        });
-    }, [data]);
+    // format data for the chart
+    const chartData = {
+        labels: labels,
+        datasets: [{
+            data: revenueData,
+            backgroundColor: '#F7464A',
+            hoverBackgroundColor: '#FF5A5E'
+        }]
+    }
 
     return (
-        <body>
+        <div>
+            <h2>Revenue par catégorie</h2>
             <Bar data={chartData} />
-        </body>
+        </div>
     )
 }
 
-export default ChartComponent;
+export default RevenueCategorie;
