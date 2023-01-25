@@ -9,55 +9,36 @@ const ChartComponent = () => {
         const fetchData = async () => {
             const response = await fetch('http://localhost:3000/RevenueCategorie');
             const jsonData = await response.json();
-            console.log(jsonData);
             setData(jsonData);
         }
         fetchData();
     }, []);
 
     useEffect(() => {
-        let grossincomeLabels = [];    
-        let grossincomeData = [];
-        let productlineLabels = [];
-        let productlineData = [];
+        let productLineLabels = [];    
+        let grossIncomeData = [];
 
         data.forEach(item => {
-            if(item.Grossincome){
-              grossincomeLabels.push(item.Grossincome);
-              grossincomeData.push(item.Grossincomecount);
-            }
-            if(item.Gender){
-              productlineLabels.push(item.Productline);
-              productlineData.push(item.Productlinecount);
+            if(item.Productline){
+              productLineLabels.push(item.Productline);
+              grossIncomeData.push(item.Grossincome);
             }
         });
-        console.log(chartData);
+        
         setChartData({
-            Grossincome: {
-                labels: grossincomeLabels,
-                datasets: [{
-                    data: grossincomeLabels,
-                    backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1'],
-                    hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5']
-                }]
-            },
-            Productline: {
-                labels: productlineLabels,
-                datasets: [{
-                    data: productlineData,
-                    backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1'],
-                    hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5']
-                }]
-            }
+            labels: productLineLabels,
+            datasets: [{
+                data: grossIncomeData,
+                backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
+                hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774']
+            }]
         });
-        console.log('chartData', chartData); // check chartData
-    }, [chartData,data]);
+    }, [data]);
 
     return (
-        <div>
-            <Bar data={chartData.grossincome} />
-            <Bar data={chartData.productline} />
-        </div>
+        <body>
+            <Bar data={chartData} />
+        </body>
     )
 }
 
