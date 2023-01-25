@@ -1,4 +1,4 @@
-cette apllication pour inserter les données d'un fichier csv pour manipuler des charts 
+cette apllication est réaliser par express.js permet inserter les données d'un fichier csv pour manipuler des charts 
 le fichier DB.js contient les elements nécaissaire pour la connection avec la base de données mogo atlas
 le fichier insertdata.js contient une fonction pour le charger les données d'un fichier csv et ajouter dans la base de données Mongodb Atlas
 le fichier server.js contient les endpoints /RevenueCategorie , /AchatType, RatingparSexe pour fournit des objets JSON pour chaque ressources
