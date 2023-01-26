@@ -1,5 +1,7 @@
 Cette application est développée avec Node.js ,Express.js,MongoDB et React.js pour le front end elle permet de l'insertion de données à partir d'un fichier CSV pour manipuler et afficher des graphiques. Le fichier DB.js contient les éléments nécessaires pour se connecter à la base de données Mongo Atlas. Le fichier insertdata.js contient une fonction pour charger les données d'un fichier CSV et les ajouter à la base de données Mongo Atlas. Le fichier server.js contient les points de terminaison /RevenueCategorie, /AchatType et /RatingparSexe pour fournir des objets JSON pour chaque ressource.
-# Lien pour les screens de front-end
+# Lien et les screens de front-end
+Lien pour les charts que j'ai Réaliser dans MongoDB :
+https://charts.mongodb.com/charts-project-0-tgbjl/public/dashboards/63d05093-53bf-4092-884c-2f70ad1fffab
 screen#1
 https://drive.google.com/file/d/1I_LKfdvw7PnhpT4kSehMY_2gjLH-FoaB/view?usp=sharing
 screen#2
