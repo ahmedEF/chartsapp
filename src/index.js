@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import RevenueCategorie from './chart2';
+import MyComponent from './RatingparSexe';
+import MyComponent2 from './AchatparCustomertype';
+import MyComponent3 from './RevenueCategorie';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
-    <RevenueCategorie />
-  </>
-);
+  <React.StrictMode>
+    <MyComponent />
+    
+    <MyComponent2/>
 
+    <MyComponent3/>
+  </React.StrictMode>
+);
 
