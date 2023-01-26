@@ -1,4 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
+  //initialiser l'URI avec les données d'utilisateur pour accéder a la base de données et créé une Instance
 const  uri = "mongodb+srv://AHMEDEF:JQXiFDETa7UtrzJ6@cluster0.51prfli.mongodb.net/?retryWrites=true&w=majority";
 // fonction permet de connecter a la base de données mongodb atlas avec un lien uri 
 const connectToDb = async () => {
