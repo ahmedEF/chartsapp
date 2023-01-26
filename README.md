@@ -1,7 +1,4 @@
-cette apllication est réaliser par express.js permet inserter les données d'un fichier csv pour manipuler des charts 
-le fichier DB.js contient les elements nécaissaire pour la connection avec la base de données mogo atlas
-le fichier insertdata.js contient une fonction pour le charger les données d'un fichier csv et ajouter dans la base de données Mongodb Atlas
-le fichier server.js contient les endpoints /RevenueCategorie , /AchatType, RatingparSexe pour fournit des objets JSON pour chaque ressources
+Cette application est développée avec Express.js et permet l'insertion de données à partir d'un fichier CSV pour manipuler et afficher des graphiques. Le fichier DB.js contient les éléments nécessaires pour se connecter à la base de données Mongo Atlas. Le fichier insertdata.js contient une fonction pour charger les données d'un fichier CSV et les ajouter à la base de données Mongo Atlas. Le fichier server.js contient les points de terminaison /RevenueCategorie, /AchatType et /RatingparSexe pour fournir des objets JSON pour chaque ressource.
 # Lien pour les screens de front-end
 screen#1
 https://drive.google.com/file/d/1I_LKfdvw7PnhpT4kSehMY_2gjLH-FoaB/view?usp=sharing
